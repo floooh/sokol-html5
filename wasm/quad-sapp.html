@@ -15,28 +15,7 @@
 
   <canvas class="game" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
 
-    <script>
-    var Module = {};
-
-    function script(url, cb) {
-        var s = document.createElement('script');
-        s.src = url;
-        s.onload = cb;
-        document.body.appendChild(s);
-    }
-
-    function binary(url, cb) {
-        var x = new XMLHttpRequest();
-        x.open('GET', url, true);
-        x.responseType = 'arraybuffer';
-        x.onload = function() { cb(x.response); }
-        x.send(null);
-    }
-
-    binary('quad-sapp.wasm', function(wasm) {
-        Module.wasm = wasm;
-        script('quad-sapp.js');
-    });
-    </script>
+  <script type="text/javascript" src="../emsc.js"></script>
+  <script async type="text/javascript" src="quad-sapp.js"></script>
 </body>
 </html>
